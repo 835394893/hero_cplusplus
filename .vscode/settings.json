@@ -1,0 +1,22 @@
+{
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.colorTheme": "Visual Studio Light",
+    "workbench.editor.empty.hint": "hidden",
+    "explorer.confirmDelete": false,
+    "workbench.editorAssociations": {
+        "*.exe": "default"
+    },
+    "code-runner.languageIdToFileExtensionMap": {
+
+
+
+        "bat": ".bat",
+        "powershell": ".ps1",
+        "typescript": ".ts"
+    },
+    "files.associations": {
+        "25_10_08.C": "cpp",
+        "windows.h": "c",
+        "stdio.h": "c"
+    }
+}
