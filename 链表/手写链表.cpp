@@ -17,7 +17,7 @@ public:
     LinkedList():head(NULL),size(0){}
     ~LinkedList();
     void insert(int i,eleType value);
-    void remove(int i);
+    void remove(int i);//删除第i个节点
     ListNode* find(eleType value);
     ListNode* get(int i);
     void update(int i,eleType value);
@@ -79,6 +79,67 @@ void LinkedList::remove(int i)
         ListNode* temp = curr->next;
         curr->next = temp->next;
         delete temp;
-        size--;
     }
+    size--;
+}
+
+ListNode *LinkedList::find(eleType value)
+{
+    ListNode *curr = head;
+    while(curr && curr->data != value)
+    {
+        curr = curr->next;
+    }
+    return curr;
+}
+
+ListNode* LinkedList::get(int i)
+{
+    if(i < 0 || i >= size)
+    {
+        throw std::out_of_range("Invalid position");
+    }
+    ListNode *curr = head;
+    for(int j = 0;j < i;++j)
+    {
+        curr = curr->next;
+    }
+    return curr;
+}
+
+void LinkedList::update(int i,eleType value)
+{
+    get(i)->data = value;
+}
+
+void LinkedList::print()
+{
+    ListNode *curr = head;
+    while(curr)
+    {
+        cout << curr->data << " ";
+        curr = curr->next;
+    }
+    cout << endl;
+}
+
+
+int main()
+{
+    LinkedList list;
+    list.insert(0,10);
+    list.insert(1,20);
+    list.insert(2,30);
+    list.insert(3,40);
+    list.insert(4,50);
+    list.insert(5,60);
+    list.print();
+    list.remove(1);
+    list.print();
+    list.update(2,100);
+    list.print();
+    ListNode *tmp = list.find(30);
+    cout << tmp->data << endl;
+    cout << list.get(2)->data << endl;
+    return 0;
 }
